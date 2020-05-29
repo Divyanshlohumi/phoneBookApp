@@ -1,0 +1,66 @@
+.container{
+    padding: 50px;
+}
+.heading{
+    background-color: cadetblue;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: medium;
+    font-weight: bold;
+    
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.main{
+    width: 50%;
+    margin: 50px auto;
+    padding: 0px;
+    border: 1px solid black;
+}
+
+.details{
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #bfbfbf ;
+    background-color: ghostwhite;
+}
+.detail-item {
+    margin: 10x;
+}
+.btn{
+    font:4px;
+    padding: 5px 20px;
+}
+.add, .add:hover{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+    font-size: 14px;
+    font-weight: lighter;
+    margin: 5px;
+    text-decoration: none;
+}
+.increment{
+    display: flex;
+}
+.increment i{
+    font-size: 15px;
+    margin: 10px 8px;
+    font-size: 1.5em;
+    color: black;
+}

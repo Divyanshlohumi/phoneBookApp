@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Contact Book App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/custom.css">
+        <script>
+            $(document).ready(function() {
+                var max_fields = 5;
+                var wrapper = $(".mob");
+                var add_button = $(".add_field_button");
+                
+                var x = 1;
+                $(add_button).click(function(e){
+                    e.preventDefault();
+                    if(x < max_fields){
+                        x++;
+                        $(wrapper).append('<br><div class="form-group"><label for="mobile">Mobile No.:</label><div class="increment mob"><input type="number" class="form-control" id="mobile" placeholder="Enter Mobile no." name="user[phone]" value="<%= user.phone %>"><a href="" class="remove_field"><i class="fa fa-times-circle fa-lg"></i></a></div></div>');
+                    }
+                });
+                
+                $(wrapper).on("click",".remove_field", function(e){
+                    e.preventDefault(); $(this).parent('div').remove(); 
+                    x--;
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <h3 class="heading">RM - PHONEBOOK</h3>
+            <div class="container">
+
+                <a href="/"><i class="fa fa-arrow-circle-left fa-lg"></i></a><span style="padding: 10px 10px;">Edit contact</span>
+
+                <form action="/user/<%= user._id %>?_method=PUT" method="POST" style="padding-top: 10px;">
+                    <div class="form-group">
+                    <label for="Name">Name:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Name" name="user[name]" value="<%= user.name %>">
+                    </div>
+                    <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" class="form-control" id="dob" placeholder="Enter DOB" name="user[dob]" value="<%= user.dob %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile No.:</label>
+                        <div class="increment mob">
+                            <input type="number" class="form-control" id="mobile" placeholder="Enter Mobile no." name="user[phone]" value="<%= user.phone %>">
+                            <a href="" class="add_field_button"><i class="fa fa-plus fa-lg"></i></a >
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="email">Email:</label>
+                        <div class="increment">
+                            <input type="email" class="form-control" id="email" placeholder="Enter Email" name="user[email]" value="<%= user.email %>">
+                            <a href=""><i class="fa fa-plus fa-lg"></i></a >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+
+            </div>
+        </div>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    </body>
+    
+</html>
